@@ -10,13 +10,14 @@ def request(url):
         pass
 
 
-target_url = "controltechnology.co.za"
+target_url = "zaproxy.org"
 
 with open("/root/Downloads/dirs_wordlist.txt", "r") as wordlist_file:
     for line in wordlist_file:
         word = line.strip()
         #test_url = word + "." + target_url                 #For subdomains
         test_url = target_url + "/" + word                  #For directores
+        print("[+] Trying --> " + test_url)
         response = request(test_url)
         if response:
             #print("[+] Discovered subdomain --> " + test_url)
